@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Tabungan Siswa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fa-solid fa-wallet"></i> Tabungan Siswa</h1>
+            <p>Kelola keuangan siswa dengan mudah dan praktis</p>
+        </header>
+
+        <section class="card">
+            <h2><i class="fa-solid fa-user-plus"></i> Buka Tabungan Baru</h2>
+            <form id="form-daftar">
+                <div class="form-group">
+                    <label for="nama">Nama Siswa</label>
+                    <input type="text" id="nama" placeholder="Masukkan nama lengkap" required>
+                </div>
+                <div class="form-group">
+                    <label for="saldo-awal">Saldo Awal (Rp)</label>
+                    <input type="number" id="saldo-awal" placeholder="Contoh: 50000" min="0" required>
+                </div>
+                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-check"></i> Buat Akun</button>
+            </form>
+        </section>
+
+        <div id="dashboard" class="hidden">
+            <section class="card balance-card">
+                <h3>Saldo Saat Ini</h3>
+                <div class="account-info">
+                    <span id="display-nama">Nama Siswa</span>
+                </div>
+                <div class="balance-amount" id="display-saldo">Rp 0</div>
+            </section>
+
+            <section class="card">
+                <h2><i class="fa-solid fa-money-bill-transfer"></i> Transaksi</h2>
+                <form id="form-transaksi">
+                    <div class="form-group">
+                        <label for="jumlah">Jumlah Uang (Rp)</label>
+                        <input type="number" id="jumlah" placeholder="Masukkan nominal" min="1" required>
+                    </div>
+                    <div class="button-group">
+                        <button type="button" id="btn-setor" class="btn btn-success">
+                            <i class="fa-solid fa-arrow-down"></i> Tambah Uang (Setor)
+                        </button>
+                        <button type="button" id="btn-tarik" class="btn btn-danger">
+                            <i class="fa-solid fa-arrow-up"></i> Tarik Uang
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="card">
+                <h2><i class="fa-solid fa-history"></i> Riwayat Transaksi</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Waktu</th>
+                                <th>Jenis</th>
+                                <th>Nominal</th>
+                                <th>Saldo Akhir</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabel-riwayat">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
